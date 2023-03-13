@@ -70,7 +70,7 @@ price integer NOT NULL);
 #populate coupe table
 coupe_vehicles = """ 
 insert into COUPE_MODELS values
-('123abc322','Ashton Martin', 'Vanquish', 200, 115000),
+('123abc321','Ashton Martin', 'Vanquish', 200, 115000),
 ('asd748541', 'Audi', 'RS 7', 1200, 12500) """
 
 #populate suv table
@@ -101,11 +101,14 @@ SET mileage = 2000
 where vin_number = '123abc322'
 """
 
+remove_firstCoupe_vehicle = """
+DELETE FROM COUPE_MODELS
+WHERE  vin_number = '123abc321';"""
 
 #calling statement
 connection = create_server_connection("localhost", "root", "student","exotic_dealership")
 #call work horse function to run query
-execute_query(connection,update_firstCoupe_mileage)
+execute_query(connection,remove_firstCoupe_vehicle)
 #call create_database function to create DB in mySQL
 #create_database(connection, create_database_query)
 #call read query function to fetch information from MySQL

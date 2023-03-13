@@ -208,13 +208,22 @@ where vin_number = '123abc322'
 
 #call work horse function to run query
 execute_query(connection,update_firstCoupe_mileage)
-#call create_database function to create DB in mySQL
-#create_database(connection, create_database_query)
+
 #call read query function to fetch information from MySQL
 results = read_query(connection, display_coupe_models_table)
 #iterate through the table to display all information
 for result in results:
     print(result)
+
+
+11.)#delete value from table
+
+remove_firstCoupe_vehicle = """
+DELETE FROM COUPE_MODELS
+WHERE   vin_number = '123abc321';"""
+
+#call work horse function to run query
+execute_query(connection,remove_firstCoupe_vehicle)
 
 
 

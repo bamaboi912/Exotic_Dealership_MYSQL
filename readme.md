@@ -41,3 +41,6 @@ manipulating numerical tables and time series.
 
 8.)create function to read data from tables
 *insert screenshot of values from table being displayed in Pycharm
+
+9.)display updated information in PhyCharm:
+*insert screen shot of 
