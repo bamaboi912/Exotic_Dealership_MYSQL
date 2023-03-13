@@ -45,11 +45,6 @@ model VARCHAR(50) NOT NULL,
 mileage integer NOT NULL,
 price integer NOT NULL);"""
 
-#populate coupe table
-coupe_vehicles = """ 
-insert into COUPE_MODELS values
-('123abc321','Ashton Martin', 'Vanquish', 200, 115000),
-('asd748541', 'Audi', 'RS 7', 1200, 12500) """
 
 #create suv table
 create_suv_table = """
@@ -61,9 +56,23 @@ mileage integer NOT NULL,
 price integer NOT NULL);
 """
 
+#populate coupe table
+coupe_vehicles = """ 
+insert into COUPE_MODELS values
+('123abc321','Ashton Martin', 'Vanquish', 200, 115000),
+('asd748541', 'Audi', 'RS 7', 1200, 12500) """
+
+#populate suv table
+suv_table = """ 
+insert into SUV_MODELS values
+('123abc321','Lamborghini', 'Urus', 200, 115000),
+('asd748541', 'BMW', 'X5', 1200, 12500) """
+
+
+
 #calling statement
 connection = create_server_connection("localhost", "root", "student","exotic_dealership")
 #call work horse function to run query
-execute_query(connection,coupe_vehicles)
+execute_query(connection,suv_table)
 #call create_database function to create DB in mySQL
 #create_database(connection, create_database_query)

@@ -133,5 +133,18 @@ insert into COUPE_MODELS values
 ('asd748541', 'Audi', 'RS 7', 1200, 12500) """  <--- end of value
 
 #call work horse function to run query
-execute_query(connection,coupe_vehicles)
+execute_query(connection,coupe_vehicles)<----calling statement.
+
+8.)Populate SUV table:
+
+#populate suv table
+suv_table = """
+insert into SUV_MODELS values
+('123abc321','Lamborghini', 'Urus', 200, 115000),
+('asd748541', 'BMW', 'X5', 1200, 12500) """
+
+#call work horse function to run query
+execute_query(connection,suv_table)
+
+
 
