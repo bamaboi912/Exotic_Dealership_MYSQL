@@ -2,13 +2,14 @@
 import mysql.connector
 from mysql.connector import Error
 
-def create_server_connection(host_name, user_name, user_password):
+def create_server_connection(host_name, user_name, user_password,db_name):
     connection = None
     try:
         connection = mysql.connector.connect(
             host = host_name,
             user = user_name,
-            passwd = user_password
+            passwd = user_password,
+            database=db_name
         )
         print("MySQL Database Connection Successful")
     except Error as err:
@@ -22,11 +23,21 @@ def create_database(connection, query):
         print("Database created successfully")
     except Error as err:
         print(f"Error: {err}")
+
+def execute_query(connection, query):
+    cursor = connection.cursor()
+    try:
+        cursor.execute(query)
+        connection.commit()
+        print("Query sucessful")
+    except Error as err:
+        print(f"Error: {err}")
+
 #call create_database function to create DB in mySQL
 #Queries
 create_database_query = "create database EXOTIC_DEALERSHIP"
 
 #calling statement
-connection = create_server_connection("localhost", "root", "student")
+connection = create_server_connection("localhost", "root", "student","exotic_dealership")
 #call create_database function to create DB in mySQL
-create_database(connection, create_database_query)
+#create_database(connection, create_database_query)

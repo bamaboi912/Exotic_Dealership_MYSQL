@@ -21,3 +21,7 @@ manipulating numerical tables and time series.
 2.)Establish communication from main.py to mysql:
 
 *insert screenshot of successful connection.
+
+3.) Created database from main.py
+
+*insert screenshot of successful creation of database

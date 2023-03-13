@@ -61,3 +61,25 @@ create_database_query = "create database EXOTIC_DEALERSHIP"
 connection = create_server_connection("localhost", "root", "student")
 #call create_database function to create DB in mySQL
 create_database(connection, create_database_query)
+
+
+3.) Add database name to "create_server_connection" function and calling statement
+
+def create_server_connection(host_name, user_name, user_password, db_name): <------ add db_name
+    connection = None
+    try:
+        connection = mysql.connector.connect(
+            host = host_name,
+            user = user_name,
+            passwd = user_password,
+            database = db_name   <----- assign argument
+        )
+        print("MySQL Database Connection Successful")
+    except Error as err:
+        print(f"Error {err}")
+    return connection
+
+
+connection = create_server_connection("localhost", "root", "student","exotic_dealership") <-- place DB name
+
+4.)Place work horse function
