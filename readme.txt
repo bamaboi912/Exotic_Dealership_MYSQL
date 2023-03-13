@@ -11,3 +11,8 @@ Configuration:
     for data manipulation and analysis. In particular, it offers
     data structures and operations for
     manipulating numerical tables and time series.
+
+file>settings>name of project > project interpreter, search each extension then
+install
+database un: root pw:student
+screenshot of test connection after database
