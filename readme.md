@@ -25,3 +25,9 @@ manipulating numerical tables and time series.
 3.) Created database from main.py
 
 *insert screenshot of successful creation of database
+
+4.)Create coupe table for db:
+*insert screenshot of creation of table.
+
+5.)Create SUV table for DB:
+*insert screenshot of creation of table
