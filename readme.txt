@@ -1,5 +1,6 @@
 Install Extensions:
-
+for commits:
+Git: create git
 
 Configuration:
     - Installation of extensions:
@@ -145,6 +146,76 @@ insert into SUV_MODELS values
 
 #call work horse function to run query
 execute_query(connection,suv_table)
+
+9.)Read information from DB in phycharm:
+
+def read_query(connection, query):   <----- insert this function to read info from mysql
+    cursor = connection.cursor()
+    result = None
+    try:
+        cursor.execute(query)
+        result = cursor.fetchall()
+        return result
+    except Error as err:
+        print(f"Error: {err}")  <---- end of content to place
+
+#read values from coupe table
+display_coupe_models_table = """
+SELECT * FROM COUPE_MODELS;
+"""
+
+
+#call read query function to fetch information from MySQL
+results = read_query(connection, display_coupe_models_table)
+#iterate through the table to display all information
+for result in results:
+    print(result)
+
+#read values from suv table
+display_suv_models_table = """
+SELECT * FROM SUV_MODELS;
+"""
+#call read query function to fetch information from MySQL
+results = read_query(connection, display_suv_models_table)
+#iterate through the table to display all information
+for result in results:
+    print(result)
+
+
+10.)Update mileage count for vehicle in SUV table:
+update_firstSUV_mileage = """
+update suv_models
+SET mileage = 5000
+where vin_number = '123abc321'
+"""
+#call work horse function to run query
+execute_query(connection,update_firstSUV_mileage)<-------update work horse
+#call create_database function to create DB in mySQL
+#create_database(connection, create_database_query)
+#call read query function to fetch information from MySQL
+results = read_query(connection, display_suv_models_table)
+#iterate through the table to display all information
+for result in results:
+    print(result)
+
+10.)Update mileage count for vehicle in coupe table:
+
+update_firstCoupe_mileage = """
+update COUPE_MODELS
+SET mileage = 2000
+where vin_number = '123abc322'
+"""
+
+#call work horse function to run query
+execute_query(connection,update_firstCoupe_mileage)
+#call create_database function to create DB in mySQL
+#create_database(connection, create_database_query)
+#call read query function to fetch information from MySQL
+results = read_query(connection, display_coupe_models_table)
+#iterate through the table to display all information
+for result in results:
+    print(result)
+
 
 
 
